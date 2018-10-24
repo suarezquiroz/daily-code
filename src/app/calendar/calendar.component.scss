@@ -1,0 +1,31 @@
+#calendar{
+    border: 1px solid green
+}
+
+.month{
+    border: 1px solid blue
+}
+
+.month-name{
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+
+.month-days{
+    display: flex;
+}
+
+.day{
+    width: 100%;
+    border: 1px solid gray
+}
+
+.day-number{
+    text-align: center;
+    background-color: purple;
+    color: white;
+}
+.day-content{
+    cursor: pointer;
+}
