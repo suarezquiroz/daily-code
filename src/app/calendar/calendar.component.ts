@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  dailyCodes: Observable<any[]>;
+  constructor(db: AngularFirestore) {
+    let query = ref => ref.orderBy('date','asc')
+    this.dailyCodes = db.collection('dailycode',query).valueChanges();
+  }
 
   ngOnInit() {
   }

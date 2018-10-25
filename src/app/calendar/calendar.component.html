@@ -7,10 +7,13 @@
       <strong>October</strong>
     </div>
     <div class="month-days">
-      <div class="day">
-        <div class="day-number">24</div>
-        <div class="day-content">
-          Angular Setup, calendar component and some css
+      <div *ngFor="let day of dailyCodes | async">
+        <div class="day">
+          <div class="day-number">{{day.date.toDate() | date:'dd'}}</div>
+          <div class="day-content">
+            <div class="day-title">{{day.title}}</div>
+            <div class="day-description">{{day.description}}</div>
+          </div>
         </div>
       </div>
     </div>
