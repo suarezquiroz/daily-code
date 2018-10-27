@@ -1,0 +1,14 @@
+<div>
+  <input type="text" name="todo" id="todo-text" [(ngModel)]="newTodo">
+  <input type="button" value="Add" id="add-button" (click)="add(newTodo)">
+</div>
+<div>{{getRemainingCount()}} remaining out of {{items.length}} tasks</div>
+<ul>
+  <li class="todo-item" 
+    *ngFor="let item of items" 
+    (click)="toggleItem(item)" 
+    [ngClass]="{'is-done':item.isDone}"
+  >
+    item {{item.name}}
+  </li>
+</ul>
