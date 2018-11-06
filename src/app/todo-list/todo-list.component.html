@@ -1,14 +1,24 @@
-<div>
-  <input type="text" name="todo" id="todo-text" [(ngModel)]="newTodo">
-  <input type="button" value="Add" id="add-button" (click)="add(newTodo)">
-</div>
-<div>{{getRemainingCount()}} remaining out of {{items.length}} tasks</div>
-<ul>
-  <li class="todo-item" 
-    *ngFor="let item of items" 
-    (click)="toggleItem(item)" 
-    [ngClass]="{'is-done':item.isDone}"
-  >
-    item {{item.name}}
-  </li>
-</ul>
+<mat-card class="todo-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>list_alt</mat-icon>
+      <mat-card-title>To Do List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field class="example-full-width">
+          <input type="text" matInput name="todo" id="todo-text" [(ngModel)]="newTodo">
+        </mat-form-field>
+        <a id="add-button" mat-raised-button color="primary" (click)="add(newTodo)">Add</a>
+      </div>
+      <div>{{getRemainingCount()}} remaining out of {{items.length}} tasks</div>
+      <ul>
+        <li class="todo-item" 
+          *ngFor="let item of items" 
+          (click)="toggleItem(item)" 
+          [ngClass]="{'is-done':item.isDone}"
+        >
+          {{item.name}}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
